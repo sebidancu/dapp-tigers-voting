@@ -72,5 +72,5 @@ One can contribute by creating _pull requests_, or by opening _issues_ for disco
 
 ## Developers
 [Gabriel Coman](https://github.com/gabrielcoman21)
+
 [Dancu Sebastian](https://github.com/sebidancu)
-The [Elrond Team](https://elrond.com/team/).
