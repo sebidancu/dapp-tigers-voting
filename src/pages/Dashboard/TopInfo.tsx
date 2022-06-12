@@ -1,82 +1,99 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
-import { useEffect, useState } from 'react';
-import { useGetAccountInfo, DappUI } from '@elrondnetwork/dapp-core';
-import axios from 'axios';
-import { contractAddress } from 'config';
-import { Container, Row, Col } from 'react-bootstrap';
-import { Card } from 'antd';
-import 'antd/dist/antd.css';
 
-const { Meta } = Card;
 
 const TopInfo = () => {
-  const { address, account } = useGetAccountInfo();
-
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      await axios
-        .get(
-          `https://devnet-api.elrond.com/accounts/${address}/nfts?collection=TPC-b1e55b`
-        )
-        .then(
-          async (result) => {
-            setItems(result.data);
-            console.log(result.data);
-          },
-          (error) => {
-            console.log(error);
-          }
-        )
-        .catch((err) => {
-          console.log(err.message);
-        });
-    })();
-  }, [address]);
-
   return (
     <div className='text-black' data-testid='topInfo'>
-      {/* <div className='mb-1 bs'>
+      <section>
+        <div className="container">
+          <div className="">      
+          {/* <div className='mb-1 bs'>
         <span className='opacity-6 mr-1'>Your address:</span>
         <span data-testid='accountAddress'> {address}</span>
       </div> */}
-      {/* <div className='mb-4'>
+            {/* <div className='mb-4'>
         <span className='opacity-6 mr-1'>Contract address:</span>
         <span data-testid='contractAddress'> {contractAddress}</span>
       </div> */}
+            <div className='row justify-content-center' style={{ marginTop: '5%' }}>
+              <div className='col-md-3' style={{ margin: '20px' }}>
+                <div className="box">
+                <img src="https://usdm.service.cloudworks.ro/media/cache/im_e556e64a524f73c49504c5c4a5c15c8c.jpg" style={{
+                    height: '150px',
+                    width: 'auto',
+                    margin: '0px',
+                  }}></img>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <div className="content">
+                    <h2 style={{ color: 'white', fontWeight:'900' }}><b>Alex Velea</b></h2>
+                  </div>
 
-  <div className='row justify-content-center' style={{margin: '15px'}}>  
-      <div className='col-md-3'>
-              <Card
-                hoverable
-                style={{ width: '240px'}}
-                cover={<img alt="example" src="https://hahahaproduction.com/wp-content/uploads/2021/10/BLJ01791-1.jpeg" style={{ width: '240px', borderRadius: '20px', border: '3px black solid' }} />}
-              >
-                <Meta title="Alex Velea" description="www.instagram.com" />
-              </Card>
-      </div>
-      <div className='col-md-3'>
-            <Card
-              hoverable
-              style={{ width: '240px' }}
-              cover={<img alt="example" src="https://thumbor.unica.ro/unsafe/950x600/smart/filters:format(webp):contrast(8):quality(75)/https://www.viva.ro/wp-content/uploads/2021/05/Connect-R-19-1.jpg" style={{ width: '240px', borderRadius: '20px', border: '3px black solid' }} />}
-            >
-              <Meta title="Connect-r" description="www.instagram.com" />
-            </Card>
-      </div>
-      <div className='col-md-3'>
-            <Card
-              hoverable
-              style={{ width: '240px' }}
-              cover={<img alt="example" src="https://hahahaproduction.com/wp-content/uploads/2021/10/BLJ01791-1.jpeg" style={{ width: '240px', borderRadius: '20px', border: '3px black solid' }} />}
-            >
-              <Meta title="Killa Fonic" description="www.instagram.com" />
-            </Card>
-      </div>  
-  </div>
+                </div>
+              </div>
+              <div className='col-md-3' style={{ margin: '20px' }}>
+                <div className="box">
+                <img src="https://usdm.service.cloudworks.ro/media/cache/im_e556e64a524f73c49504c5c4a5c15c8c.jpg" style={{
+                    height: '150px',
+                    width: 'auto',
+                    margin: '0px',
+                  }}></img>
 
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <div className="content">
+                    <h2 style={{ color: 'white' }}>Connect-R</h2>
+                  </div>
+
+                </div>
+              </div>
+
+              <div className='col-md-3' style={{ margin: '20px' }}>
+                <h2>etet</h2>
+                <div className="box">
+                  <img src="https://usdm.service.cloudworks.ro/media/cache/im_e556e64a524f73c49504c5c4a5c15c8c.jpg" style={{
+                    height: '150px',
+                    width: 'auto',
+                    margin: '0px',
+                  }}></img>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <div className="content">
+                    <h2 style={{ color: 'white' }}>Killa Fonic</h2>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            {/* <section>
+        <div className="container">
+          <div className="background-img">
+            <div className="box">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <div className="content">
+                <h2 style={{ color: 'white' }}>Alex Velea</h2>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
