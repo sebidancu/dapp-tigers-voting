@@ -71,5 +71,6 @@ One can contribute by creating _pull requests_, or by opening _issues_ for disco
 5. Open a Pull Request
 
 ## Developers
-
+@gabicoman
+@sebidancu
 The [Elrond Team](https://elrond.com/team/).
