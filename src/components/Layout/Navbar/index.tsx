@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { logout, useGetAccountInfo } from '@elrondnetwork/dapp-core';
 import { Navbar as BsNavbar, NavItem, Nav } from 'react-bootstrap';
@@ -22,7 +23,12 @@ const Navbar = () => {
           className='d-flex align-items-center navbar-brand mr-0'
           to={isLoggedIn ? routeNames.dashboard : routeNames.home}
         >
-          <ElrondLogo className='elrond-logo' />
+          <img
+            src=
+            'https://tigerspartyclub.com/wp-content/uploads/2022/02/cropped-logo-bun.png'
+            style={{ width: '80px' }}
+          />
+          {/* <ElrondLogo className='elrond-logo' /> */}
           <span className='dapp-name text-muted'>{dAppName}</span>
         </Link>
 

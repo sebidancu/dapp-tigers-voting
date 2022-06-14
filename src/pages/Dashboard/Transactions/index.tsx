@@ -75,14 +75,13 @@ const Transactions = () => {
   return (
     <div >
       <div className='text-center'>
-        <h2>
-          Detineti <b>{items.length}</b> NFT-uri TPC, prin urmare aveti dreptul
-          la <b>{items.length}</b> voturi.
+        <h2 style={{color:'white', fontWeight:700, fontFamily: 'Cinzel', textTransform:'uppercase', textShadow:'2px 2px #242526'}}>
+          <b>{items.length}</b> NFTs <img src='https://tigerspartyclub.com/wp-content/uploads/2022/02/cropped-logo-bun.png' style={{width:'120px'}}/> <b>{items.length}</b> votes.
         </h2>
       </div>
-      <div className='row justify-content-center'>
+      <div className='row justify-content-center' >
         {items.map((value: any, index) => (
-          <div key={index} style={{ margin: '25px' }} className='bs'>
+          <div key={index} style={{ margin: '25px', backgroundColor:'#242526' }} className='bs'>
             <img
               src={value.url}
               alt='nft'
@@ -94,19 +93,19 @@ const Transactions = () => {
                 border: '3px black solid'
               }}
             />
-            <div className='text-center'>{value.identifier}</div>
+            <div className='text-center' style={{color: 'white'}}><b>{value.identifier}</b></div>
 
             <div className='text-center' onClick={sendPingTransaction}>
               <br />
-              <Button variant="primary" style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15, }}>Alex Velea</Button>
+              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: '#FFF', color: 'black', borderRadius: 15, }}><b>Alex Velea</b></Button>
             </div>
             <div className='text-center' onClick={sendPingTransaction}>
               <br />
-              <Button variant="primary" style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }}>Conect-R</Button>
+              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }}><b>Connect-R</b></Button>
             </div>
             <div className='text-center' onClick={sendPingTransaction}>
               <br />
-              <Button variant="primary" style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }}>Smiley</Button>
+              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }}><b>Smiley</b></Button>
             </div>
 
           </div>
