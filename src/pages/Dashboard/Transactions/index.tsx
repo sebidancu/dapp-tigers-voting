@@ -17,6 +17,7 @@ import { contractAddress } from 'config';
 import { StateType } from './types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { Address } from '@elrondnetwork/erdjs/out';
 
 
 
@@ -50,11 +51,22 @@ const Transactions = () => {
 
   const { sendTransactions } = transactionServices;
 
-  const sendPingTransaction = async () => {
+  const sendVoteRuby = async (token_id: any, nft_nonce: any) => {
     const pingTransaction = {
       value: '0',
-      data: 'vote@01',
-      receiver: contractAddress
+      data:
+        'ESDTNFTTransfer@' +
+        strtoHex(token_id) +
+        '@' +
+        numtoHex(nft_nonce) +
+        '@' +
+        numtoHex(1) +
+        '@' +
+        new Address(contractAddress).hex() +
+        '@' +
+        strtoHex('vote')+
+        '@01',
+      receiver: address
     };
     await refreshAccount();
 
@@ -72,6 +84,89 @@ const Transactions = () => {
     }
   };
 
+  const sendVoteVelea = async (token_id: any, nft_nonce: any) => {
+    const pingTransaction = {
+      value: '0',
+      data:
+        'ESDTNFTTransfer@' +
+        strtoHex(token_id) +
+        '@' +
+        numtoHex(nft_nonce) +
+        '@' +
+        numtoHex(1) +
+        '@' +
+        new Address(contractAddress).hex() +
+        '@' +
+        strtoHex('vote')+
+        '@02',
+      receiver: address
+    };
+    await refreshAccount();
+
+    const { sessionId /*, error*/ } = await sendTransactions({
+      transactions: pingTransaction,
+      transactionsDisplayInfo: {
+        processingMessage: 'Processing Ping transaction',
+        errorMessage: 'An error has occured during Ping',
+        successMessage: 'Ping transaction successful'
+      },
+      redirectAfterSign: false
+    });
+    if (sessionId != null) {
+      setTransactionSessionId(sessionId);
+    }
+  };
+
+  const sendVoteMarko = async (token_id: any, nft_nonce: any) => {
+    const pingTransaction = {
+      value: '0',
+      data:
+        'ESDTNFTTransfer@' +
+        strtoHex(token_id) +
+        '@' +
+        numtoHex(nft_nonce) +
+        '@' +
+        numtoHex(1) +
+        '@' +
+        new Address(contractAddress).hex() +
+        '@' +
+        strtoHex('vote')+
+        '@03',
+      receiver: address
+    };
+    await refreshAccount();
+
+    const { sessionId /*, error*/ } = await sendTransactions({
+      transactions: pingTransaction,
+      transactionsDisplayInfo: {
+        processingMessage: 'Processing Ping transaction',
+        errorMessage: 'An error has occured during Ping',
+        successMessage: 'Ping transaction successful'
+      },
+      redirectAfterSign: false
+    });
+    if (sessionId != null) {
+      setTransactionSessionId(sessionId);
+    }
+  };
+  function strtoHex(str: string) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+      result += str.charCodeAt(i).toString(16);
+    }
+    if (result.length % 2 == 1) {
+      result = '0' + result;
+    }
+    return result;
+  }
+
+  function numtoHex(num: number) {
+    let result = num.toString(16);
+    if (result.length % 2 == 1) {
+      result = '0' + result;
+    }
+    return result;
+  }
   return (
     <div >
       <div className='text-center'>
@@ -95,17 +190,17 @@ const Transactions = () => {
             />
             <div className='text-center' style={{color: 'white'}}><b>{value.identifier}</b></div>
 
-            <div className='text-center' onClick={sendPingTransaction}>
+            <div className='text-center'>
               <br />
-              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: '#FFF', color: 'black', borderRadius: 15, }}><b>Alex Velea</b></Button>
+              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: '#FFF', color: 'black', borderRadius: 15, }} onClick={()=>sendVoteRuby(value.collection,value.nonce)}><b>RUBY</b></Button>
             </div>
-            <div className='text-center' onClick={sendPingTransaction}>
+            <div className='text-center'>
               <br />
-              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }}><b>Connect-R</b></Button>
+              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }} onClick={()=>sendVoteVelea(value.collection,value.nonce)}><b>ALEX VELEA</b></Button>
             </div>
-            <div className='text-center' onClick={sendPingTransaction}>
+            <div className='text-center' >
               <br />
-              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }}><b>Smiley</b></Button>
+              <Button variant="primary" className='button' style={{ width: '200px', backgroundColor: 'black', color: 'white', borderRadius: 15 }} onClick={()=>sendVoteMarko(value.collection,value.nonce)}><b>MARKO GLASS</b></Button>
             </div>
 
           </div>
