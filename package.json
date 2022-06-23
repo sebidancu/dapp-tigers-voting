@@ -1,8 +1,9 @@
 {
   "name": "@elrondnetwork/dapp-template",
+  "homepage": "https://dapp.tigerspartyclub.com",
   "description": "Elrond Dapp Template",
   "version": "0.2.0",
-  "author": "ElrondNetwork",
+  "author": "TPC",
   "license": "GPL-3.0-or-later",
   "repository": "@elrondnetwork/dapp-template",
   "dependencies": {

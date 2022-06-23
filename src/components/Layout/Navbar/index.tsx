@@ -29,7 +29,7 @@ const Navbar = () => {
             style={{ width: '80px' }}
           />
           {/* <ElrondLogo className='elrond-logo' /> */}
-          <span className='dapp-name text-muted'>{dAppName}</span>
+          <span className='dapp-name text-muted' style={{fontFamily: 'Cinzel', color:'black'}}>{dAppName}</span>
         </Link>
 
         <Nav className='ml-auto' style={{}}>
